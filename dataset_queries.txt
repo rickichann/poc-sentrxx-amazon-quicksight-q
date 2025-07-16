@@ -1,0 +1,29 @@
+KEBUTUHAN ANALISA DATA DENGAN QUICKSIGHT
+
+1. DASHBOARD CUSTOMER
+	Query table:
+		SELECT * FROM customers
+
+2. DASHBOARD PENJUALAN
+	Query table versi 1, berdasarkan penawaran:
+		SELECT * FROM quotations
+	
+	Query table versi 2, berdasarkan invoices (detail alat yang ditagih):
+		SELECT
+			quotations.datet AS quotation_date,
+			quotations.customer_name,
+			quotations.member_name AS sales,
+			invoices.invoice_no,
+			invoices.datet AS invoice_date,
+			invoice_details.tool_name,
+			invoice_details.price,
+			invoice_details.qty,
+			invoice_details.discount
+		FROM invoice_details
+		JOIN invoices ON invoice_details.invoice_id = invoices.id
+		JOIN quotations ON invoice_details.quotation_id = quotations.id
+		WHERE YEAR(quotations.datet) IN ('2024', '2025')
+		
+		
+	
+	
