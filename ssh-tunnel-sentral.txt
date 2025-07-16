@@ -1,0 +1,1 @@
+ssh -i poc-ec2-sentral.pem -N -L 3306:poc-sentral-db.cv48qacew2nn.ap-southeast-1.rds.amazonaws.com:3306 ubuntu@13.215.205.85
